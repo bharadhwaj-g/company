@@ -54,6 +54,15 @@ custom styles.
 ## Overview
 This repository cotains the basic CRUD operations using **CakePHP 3.X**
 
+## URLS
+Companies - http://localhost/company/companies
+Employees - http://localhost/company/employees
+Users - http://localhost/company/users
+
+## Credentials
+Username : bharadwaja.g@osmosys.asia
+Password : Change123
+
 ## Prerequisites
 - Ensure to install the PHP >= 5.6.0
 ## How to use

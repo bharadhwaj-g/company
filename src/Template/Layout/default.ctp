@@ -45,10 +45,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <?php 
                 if($this->request->Session()->read('Auth.User')){ ?> 
                 <ul class="right">
-                    <li><a target="" href="companies">Companies</a></li>
-                    <li><a target="" href="employees">Employees</a></li>
-                    <li><a target="" href="users">Users</a></li>
-                    <li><a target="" href="users/logout">Logout</a></li>
+                    <li><?= $this->Html->link(__('Comapnies'), ['controller' => 'companies', 'action' => 'index']) ?></li>
+                    <li><?= $this->Html->link(__('Employees'), ['controller' => 'employees', 'action' => 'index']) ?></li>
+                    <li><?= $this->Html->link(__('Users'), ['controller' => 'users', 'action' => 'index']) ?></li>
+                    <li><?= $this->Html->link(__('Log Out'), ['controller' => 'users', 'action' => 'logout']) ?></li>
                 </ul>
                 <?php }
                 ?>
