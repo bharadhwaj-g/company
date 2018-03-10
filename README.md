@@ -50,3 +50,23 @@ The app skeleton uses a subset of [Foundation](http://foundation.zurb.com/) (v5)
 framework by default. You can, however, replace it with any other library or
 custom styles.
 # company
+
+## Overview
+This repository cotains the basic CRUD operations using **CakePHP 3.X**
+
+## Prerequisites
+- Ensure to install the PHP >= 5.6.0
+## How to use
+- Clone the repository and move to respective folder then 
+- Install/Update the composer 'Composer install', to load all the dependencies.
+- Ensure to update database as per your's database credentials.
+
+## Note
+Please feel free to raise an issue if you found any issue or any suggestion.
+
+## TODO
+- ~~Basic setup~~
+- ~~Password Hasher~~
+- ~~Authentication~~
+- ~~CRUD Operations~~
+- AJAX Implementation
