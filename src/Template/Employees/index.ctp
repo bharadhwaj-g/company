@@ -8,6 +8,8 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New Employee'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Companies'), ['controller' => 'Companies', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Company'), ['controller' => 'Companies', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="employees index large-9 medium-8 columns content">
@@ -19,6 +21,7 @@
                 <th scope="col"><?= $this->Paginator->sort('first_name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('last_name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('company_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('gender') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('date_of_join') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
@@ -33,6 +36,7 @@
                 <td><?= h($employee->first_name) ?></td>
                 <td><?= h($employee->last_name) ?></td>
                 <td><?= h($employee->email) ?></td>
+                <td><?= $employee->has('company') ? $this->Html->link($employee->company->name, ['controller' => 'Companies', 'action' => 'view', $employee->company->id]) : '' ?></td>
                 <td><?= h($employee->gender) ?></td>
                 <td><?= h($employee->date_of_join) ?></td>
                 <td><?= h($employee->created) ?></td>

@@ -10,10 +10,13 @@ use Cake\ORM\Entity;
  * @property string $first_name
  * @property string $last_name
  * @property string $email
+ * @property int $company_id
  * @property string $gender
  * @property \Cake\I18n\FrozenDate $date_of_join
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
+ *
+ * @property \App\Model\Entity\Company $company
  */
 class Employee extends Entity
 {
@@ -31,9 +34,11 @@ class Employee extends Entity
         'first_name' => true,
         'last_name' => true,
         'email' => true,
+        'company_id' => true,
         'gender' => true,
         'date_of_join' => true,
         'created' => true,
-        'modified' => true
+        'modified' => true,
+        'company' => true
     ];
 }

@@ -9,6 +9,8 @@ use Cake\Validation\Validator;
 /**
  * Employees Model
  *
+ * @property \App\Model\Table\CompaniesTable|\Cake\ORM\Association\BelongsTo $Companies
+ *
  * @method \App\Model\Entity\Employee get($primaryKey, $options = [])
  * @method \App\Model\Entity\Employee newEntity($data = null, array $options = [])
  * @method \App\Model\Entity\Employee[] newEntities(array $data, array $options = [])
@@ -37,6 +39,11 @@ class EmployeesTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->belongsTo('Companies', [
+            'foreignKey' => 'company_id',
+            'joinType' => 'INNER'
+        ]);
     }
 
     /**
@@ -88,6 +95,7 @@ class EmployeesTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->isUnique(['email']));
+        $rules->add($rules->existsIn(['company_id'], 'Companies'));
 
         return $rules;
     }

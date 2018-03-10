@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
@@ -17,13 +18,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 ?>
 <!DOCTYPE html>
 <html>
-<head>
+    <head>
     <?= $this->Html->charset() ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
         <?= $cakeDescription ?>:
         <?= $this->fetch('title') ?>
-    </title>
+        </title>
     <?= $this->Html->meta('icon') ?>
 
     <?= $this->Html->css('base.css') ?>
@@ -32,26 +33,32 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
-</head>
-<body>
-    <nav class="top-bar expanded" data-topbar role="navigation">
-        <ul class="title-area large-3 medium-4 columns">
-            <li class="name">
-                <h1><a href=""><?= $this->fetch('title') ?></a></h1>
-            </li>
-        </ul>
-        <div class="top-bar-section">
-            <ul class="right">
-                <li><a target="_blank" href="https://book.cakephp.org/3.0/">Documentation</a></li>
-                <li><a target="_blank" href="https://api.cakephp.org/3.0/">API</a></li>
+    </head>
+    <body>
+        <nav class="top-bar expanded" data-topbar role="navigation">
+            <ul class="title-area large-3 medium-4 columns">
+                <li class="name">
+                    <h1><a href=""><?= $this->fetch('title') ?></a></h1>
+                </li>
             </ul>
-        </div>
-    </nav>
+            <div class="top-bar-section">
+                <?php 
+                if($this->request->Session()->read('Auth.User')){ ?> 
+                <ul class="right">
+                    <li><a target="" href="companies">Companies</a></li>
+                    <li><a target="" href="employees">Employees</a></li>
+                    <li><a target="" href="users">Users</a></li>
+                    <li><a target="" href="users/logout">Logout</a></li>
+                </ul>
+                <?php }
+                ?>
+            </div>
+        </nav>
     <?= $this->Flash->render() ?>
-    <div class="container clearfix">
+        <div class="container clearfix">
         <?= $this->fetch('content') ?>
-    </div>
-    <footer>
-    </footer>
-</body>
+        </div>
+        <footer>
+        </footer>
+    </body>
 </html>

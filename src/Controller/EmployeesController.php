@@ -20,6 +20,9 @@ class EmployeesController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'contain' => ['Companies']
+        ];
         $employees = $this->paginate($this->Employees);
 
         $this->set(compact('employees'));
@@ -35,7 +38,7 @@ class EmployeesController extends AppController
     public function view($id = null)
     {
         $employee = $this->Employees->get($id, [
-            'contain' => []
+            'contain' => ['Companies']
         ]);
 
         $this->set('employee', $employee);
@@ -58,7 +61,8 @@ class EmployeesController extends AppController
             }
             $this->Flash->error(__('The employee could not be saved. Please, try again.'));
         }
-        $this->set(compact('employee'));
+        $companies = $this->Employees->Companies->find('list', ['limit' => 200]);
+        $this->set(compact('employee', 'companies'));
     }
 
     /**
@@ -82,7 +86,8 @@ class EmployeesController extends AppController
             }
             $this->Flash->error(__('The employee could not be saved. Please, try again.'));
         }
-        $this->set(compact('employee'));
+        $companies = $this->Employees->Companies->find('list', ['limit' => 200]);
+        $this->set(compact('employee', 'companies'));
     }
 
     /**
